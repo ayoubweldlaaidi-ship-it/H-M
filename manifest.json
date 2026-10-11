@@ -1,0 +1,21 @@
+{
+  "name": "H&M Maroc - Espace Client",
+  "short_name": "H&M",
+  "description": "Application de suivi de commandes et mode homme H&M",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E50010",
+  "icons": [
+    {
+      "src": "hm.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "hm.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
