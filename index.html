@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H&M - Suivi, Appel & Mode Homme | Maroc</title>
-    <!-- Favicon -->
+    <!-- Favicon & PWA Manifest -->
     <link rel="icon" type="image/png" href="hm.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E50010">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -438,6 +440,15 @@
 
         // Initial render
         renderProducts();
+
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker enregistré !', reg.scope))
+                    .catch(err => console.log('Erreur Service Worker :', err));
+            });
+        }
     </script>
 </body>
 </html>
