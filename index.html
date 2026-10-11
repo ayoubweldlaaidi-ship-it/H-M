@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&M - Suivi, Appel & Mode Homme | Maroc</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="hm.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hmred: '#E50010',
+                        hmdark: '#111111'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-full flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="bg-hmred text-white font-black text-2xl tracking-tighter px-3 py-1 rounded">H&M</a>
+                <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 hidden sm:inline">Maroc - Espace Client</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#catalogue" class="text-gray-600 hover:text-hmred transition">Catalogue</a>
+                <a href="#suivi-commandes" class="text-hmred border-b-2 border-hmred pb-1 font-semibold">Mes Commandes & Livraisons</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative bg-gray-100 hover:bg-gray-200 p-2.5 rounded-full transition flex items-center justify-center">
+                    <i class="fa-solid fa-bag-shopping text-gray-800"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-hmred text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-hmdark text-white py-10 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-hmred text-white text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider">Espace Personnel</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mt-3 tracking-tight">Bienvenue, Saber Aballagh</h1>
+            <p class="text-gray-300 mt-2 text-sm sm:text-base">Suivi de vos commandes, paiements sécurisés et journal d'appels</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full space-y-12">
+
+        <!-- SECTION SUIVI DE LIVRAISON & CHAT LIVREUR -->
+        <section id="suivi-commandes" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Informations de Livraison & Commandes (2 colonnes) -->
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 space-y-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-100 pb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900 flex items-center space-x-2">
+                            <i class="fa-solid fa-truck-fast text-hmred"></i>
+                            <span>Informations de Livraison</span>
+                        </h2>
+                        <p class="text-sm text-gray-500 mt-1">Expédition globale et suivi des colis</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center space-x-1.5 w-fit">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>Livraison depuis l'étranger</span>
+                    </div>
+                </div>
+
+                <!-- Adresse et Paiement -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-200/60">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Adresse de destination</h3>
+                        <div class="text-gray-800 text-sm font-medium space-y-1">
+                            <p><span class="font-bold text-gray-900">Destinataire :</span> Saber Aballagh</p>
+                            <p><span class="font-bold text-gray-900">Adresse :</span> Dar saada 1 immeuble 79 étage 2 numéro 2, Marrakech</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-200/60">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Mode de Paiement</h3>
+                        <div class="text-gray-800 text-sm font-medium space-y-1">
+                            <p><span class="font-bold text-gray-900">Méthode :</span> Carte Bancaire</p>
+                            <p><span class="font-bold text-gray-900">Compte / Titulaire :</span> Raja Bouchentouf</p>
+                            <p><span class="font-bold text-gray-900">Date :</span> 25/09/2026 (Payé)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historique Commandes -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Historique de vos Commandes</h3>
+                    <div class="space-y-6">
+
+                        <!-- Commande 1 -->
+                        <div class="border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-100 gap-2">
+                                <div>
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Commande du 25/09/2026</span>
+                                    <h4 class="text-base font-bold text-gray-900">Colis Standard #HM-8921</h4>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full flex items-center space-x-1 w-fit">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Statut : Livrée le 10/10/2026</span>
+                                </span>
+                            </div>
+                            <ul class="py-4 space-y-2 text-sm text-gray-700 divide-y divide-gray-50">
+                                <li class="flex justify-between pt-2"><span>1x Jean</span> <span class="font-semibold text-gray-900">189 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x Pantalon</span> <span class="font-semibold text-gray-900">199 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x Veste</span> <span class="font-semibold text-gray-900">350 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x T-shirt</span> <span class="font-semibold text-gray-900">179 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x Spadrille</span> <span class="font-semibold text-gray-900">249 DH</span></li>
+                            </ul>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-100 font-bold text-base">
+                                <span class="text-gray-600">Total de la commande :</span>
+                                <span class="text-hmred text-lg">1 166 DH</span>
+                            </div>
+                        </div>
+
+                        <!-- Commande 2 -->
+                        <div class="border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-100 gap-2">
+                                <div>
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Commande du 25/09/2026</span>
+                                    <h4 class="text-base font-bold text-gray-900">Colis International #HM-8922</h4>
+                                </div>
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full flex items-center space-x-1 w-fit">
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                    <span>Statut : En cours de livraison</span>
+                                </span>
+                            </div>
+                            <ul class="py-4 space-y-2 text-sm text-gray-700 divide-y divide-gray-50">
+                                <li class="flex justify-between pt-2"><span>1x Spadrille</span> <span class="font-semibold text-gray-900">249 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x Chemise</span> <span class="font-semibold text-gray-900">199 DH</span></li>
+                                <li class="flex justify-between pt-2"><span>1x Capuchon</span> <span class="font-semibold text-gray-900">249 DH</span></li>
+                            </ul>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-100 font-bold text-base">
+                                <span class="text-gray-600">Total de la commande :</span>
+                                <span class="text-hmred text-lg">697 DH</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAT AVEC LE LIVREUR (1 colonne) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 flex flex-col h-[600px] overflow-hidden">
+                <!-- En-tête Chat -->
+                <div class="bg-hmdark text-white p-4 flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-hmred flex items-center justify-center font-bold text-white">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-sm">Youssef (Livreur H&M)</h3>
+                        <p class="text-xs text-gray-300">En ligne</p>
+                    </div>
+                </div>
+
+                <!-- Messages Container -->
+                <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4 bg-gray-50/50">
+                    <!-- Message Livreur -->
+                    <div class="flex flex-col items-start">
+                        <div class="bg-white border border-gray-200 text-gray-800 text-sm rounded-2xl rounded-tl-none px-4 py-3 max-w-[85%] shadow-sm">
+                            <p>Bonjour votre colis est prêt de livraison</p>
+                        </div>
+                        <span class="text-[10px] text-gray-400 mt-1 ml-1">09h30 10/10/2026</span>
+                    </div>
+
+                    <!-- Message Client (Saber) -->
+                    <div class="flex flex-col items-end">
+                        <div class="bg-hmred text-white text-sm rounded-2xl rounded-tr-none px-4 py-3 max-w-[85%] shadow-sm">
+                            <p>D'accord</p>
+                        </div>
+                        <span class="text-[10px] text-gray-400 mt-1 mr-1">09h32 10/10/2026</span>
+                    </div>
+
+                    <!-- Appel Reçu du Livreur -->
+                    <div class="flex justify-center my-2">
+                        <div class="bg-green-50 border border-green-200 text-green-800 text-xs rounded-xl px-4 py-2.5 flex items-center space-x-2.5 shadow-sm">
+                            <div class="w-7 h-7 rounded-full bg-green-600 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-phone-arrow-down-left text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Appel reçu du livreur</p>
+                                <p class="text-[11px] text-green-600">10h33 10/10/2026 • Durée : 46 sec</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Chat -->
+                <div class="p-3 bg-white border-t border-gray-200 flex items-center space-x-2">
+                    <input type="text" id="chat-input" placeholder="Écrire un message..." class="flex-grow bg-gray-100 border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-hmred">
+                    <button onclick="sendMessage()" class="bg-hmred hover:bg-red-700 text-white px-4 py-2.5 rounded-lg transition flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION CATALOGUE PRODUITS -->
+        <section id="catalogue">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold text-gray-800">Catalogue Articles Homme</h2>
+                <span class="text-sm text-gray-500" id="product-count">6 articles</span>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Cards injected by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16 py-8 text-center text-xs text-gray-500">
+        <p>&copy; 2026 H&M Hennes & Mauritz Maroc. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Shopping Cart Sidebar Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50 transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-xl flex flex-col justify-between">
+                <div class="p-6 overflow-y-auto">
+                    <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900">Mon Panier H&M</h3>
+                        <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-500">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div id="cart-items" class="mt-6 space-y-4">
+                        <!-- Cart items go here -->
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200 bg-gray-50">
+                    <div class="flex justify-between text-base font-medium text-gray-900 mb-4">
+                        <p>Total estimé</p>
+                        <p id="cart-total">0 DH</p>
+                    </div>
+                    <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg shadow transition flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Commander via WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Jean Casual Homme",
+                category: "Jeans",
+                price: 189,
+                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 2,
+                name: "Pantalon Classique",
+                category: "Pantalons",
+                price: 199,
+                image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 3,
+                name: "Veste Élégante",
+                category: "Vestes",
+                price: 350,
+                image: "https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 4,
+                name: "T-shirt Coton",
+                category: "T-shirts",
+                price: 179,
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 5,
+                name: "Spadrille Tendance",
+                category: "Chaussures",
+                price: 249,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800"
+            },
+            {
+                id: 6,
+                name: "Capuchon (Sweat à capuche)",
+                category: "Streetwear",
+                price: 249,
+                image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80&w=800"
+            }
+        ];
+
+        let cart = [];
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = products.map(p => `
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col border border-gray-100">
+                    <div class="relative h-64 bg-gray-200 overflow-hidden">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-xs font-bold px-2.5 py-1 rounded text-gray-800">${p.category}</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-lg">${p.name}</h3>
+                            <p class="text-hmred font-bold text-xl mt-1">${p.price} DH</p>
+                        </div>
+                        <button onclick="addToCart(${p.id})" class="mt-4 w-full bg-hmdark hover:bg-black text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Ajouter au panier</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            totalEl.innerText = `${totalPrice} DH`;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `<p class="text-gray-500 text-center py-8">Votre panier est vide.</p>`;
+                return;
+            }
+
+            itemsContainer.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between border-b border-gray-100 pb-4">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md">
+                    <div class="ml-4 flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-800">${item.name}</h4>
+                        <p class="text-sm text-hmred font-bold">${item.price} DH x ${item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 p-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Votre panier est vide !");
+                return;
+            }
+            let message = "Bonjour H&M Maroc, je souhaite commander les articles suivants :\n\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.quantity}x) : ${item.price * item.quantity} DH\n`;
+                total += item.price * item.quantity;
+            });
+            message += `\n*Total Général : ${total} DH*\n`;
+            message += `Nom : Saber Aballagh\nAdresse : Dar saada 1 immeuble 79 étage 2 numéro 2, Marrakech\nMode : Livraison depuis l'étranger\nPaiement : Carte Bancaire (Raja Bouchentouf - 25/09/2026)`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/212600000000?text=${encodedMessage}`, '_blank');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+            const now = new Date();
+            const timeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} ${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+
+            // Add user message
+            chatMessages.innerHTML += `
+                <div class="flex flex-col items-end">
+                    <div class="bg-hmred text-white text-sm rounded-2xl rounded-tr-none px-4 py-3 max-w-[85%] shadow-sm">
+                        <p>${text}</p>
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1 mr-1">${timeString}</span>
+                </div>
+            `;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
